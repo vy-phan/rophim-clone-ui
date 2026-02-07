@@ -11,6 +11,7 @@ export function absoluteUrl(path: string) {
 
 export function decodeHtmlEntities(text: string) {
     if (!text) return '';
+
     return text
         .replace(/&#039;/g, "'")
         .replace(/&quot;/g, '"')

@@ -11,7 +11,7 @@ export default function ShareAction({ variant = 'default' }: ShareActionProps) {
     const handleShare = () => {
         const url = window.location.href;
         navigator.clipboard.writeText(url).then(() => {
-            toast.success('Đã sao chép liên kết vào bộ nhớ tạm!');
+            return toast.success('Đã sao chép liên kết vào bộ nhớ tạm!');
         }).catch((err) => {
             console.error('Failed to copy: ', err);
             toast.error('Không thể sao chép liên kết.');

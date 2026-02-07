@@ -32,6 +32,7 @@ export default function EpisodesList({ movie, episodes = [] }: EpisodesListProps
                 const serverIdx = parseInt(currentSv);
                 if (!isNaN(serverIdx) && serverIdx >= 0 && serverIdx < episodes.length) {
                     setActiveServer(serverIdx);
+
                     return;
                 }
             }
@@ -122,6 +123,7 @@ export default function EpisodesList({ movie, episodes = [] }: EpisodesListProps
                     <div className='flex gap-2 overflow-x-auto pb-1 no-scrollbar'>
                          {episodes.map((server, idx) => {
                              const isActive = activeServer === idx;
+
                              return (
                                  <button 
                                     key={idx} 
