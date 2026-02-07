@@ -30,7 +30,8 @@ export default function NewMoviesCollection({ initialMovies = [], titleMovies }:
     const { handleMouseEnter, handleMouseLeave } = useMovieHover();
     // Map initialMovies (API items)
     const displayMovies: Movie[] = initialMovies.map((item: any) => {
-            const topics = item.category?.map((c: any) => c.name) || [];
+        const topics = item.category?.map((c: any) => c.name) || [];
+
         return {
             id: item._id,
             title: decodeHtmlEntities(item.name),

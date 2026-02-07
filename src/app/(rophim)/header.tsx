@@ -156,6 +156,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
         };
 
         document.addEventListener('mousedown', handleClickOutside);
+
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
