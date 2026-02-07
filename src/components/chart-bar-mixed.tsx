@@ -68,7 +68,7 @@ export function ChartBarMixed() {
                         />
                         <XAxis dataKey='visitors' type='number' hide />
                         <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
-                        <Bar dataKey='visitors' layout='vertical' radius={5} />
+                        <Bar dataKey='visitors' radius={5} />
                     </BarChart>
                 </ChartContainer>
             </CardContent>
