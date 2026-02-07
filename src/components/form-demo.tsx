@@ -68,18 +68,18 @@ const FormSchema = z.object({
         }),
     email: z
         .string({
-            required_error: 'Please select an email to display.'
+            message: 'Please select an email to display.'
         })
         .email(),
     type: z.enum(['all', 'mentions', 'none'], {
-        required_error: 'You need to select a notification type.'
+        message: 'You need to select a notification type.'
     }),
     mobile: z.boolean().default(false).optional(),
     items: z.array(z.string()).refine((value) => value.some((item) => item), {
         message: 'You have to select at least one item.'
     }),
     dob: z.date({
-        required_error: 'A date of birth is required.'
+        message: 'A date of birth is required.'
     }),
     marketing_emails: z.boolean().default(false).optional(),
     security_emails: z.boolean()
