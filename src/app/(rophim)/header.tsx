@@ -106,11 +106,13 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
         const timer = setTimeout(async () => {
             if (searchQuery.trim().length >= 2) {
                 setIsLoading(true);
+                setShowResults(true);
                 try {
                     const res = await MovieService.searchMovies(searchQuery, 6);
                     if (res.status === 'success') {
-                        setSearchResults(res.data.items);
-                        setShowResults(true);
+                        setSearchResults(res.data.items ?? []);
+                    } else {
+                        setSearchResults([]);
                     }
                 } catch (error) {
                     console.error('Search error:', error);
@@ -186,8 +188,8 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
                     <Image src={logo} alt='RoPhim' width={120} height={40} priority />
                 </Link>
                 {/* Search Bar */}
-                <div id='search' ref={searchRef} className={isSearchOpen ? 'active' : ''}>
-                    <form onSubmit={handleSearch} className='search-elements'>
+                <div id='search' ref={searchRef} className={isSearchOpen ? 'active' : ''} suppressHydrationWarning>
+                    <form onSubmit={handleSearch} className='search-elements' suppressHydrationWarning>
                         <div className='search-icon'>
                             {isLoading ? (
                                 <Loader2 size={18} strokeWidth={2.5} className='animate-spin' />
