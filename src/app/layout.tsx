@@ -7,6 +7,7 @@ import { ThemeProvider } from 'next-themes';
 
 import '@/app/globals.css';
 import { Toaster } from '@/registry/new-york-v4/ui/sonner';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const geistSans = localFont({
     src: './fonts/GeistVF.woff',
@@ -21,7 +22,8 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
     title: 'Rổ Phim',
-    description: 'Xem phim mới, phim hay, phim Hd online trực tuyến miễn phí trên rophim-ui-fake.vercel.app. Rổ phim, kho phim khổng lồ, phim lồng tiếng, phim vietsub. Cập nhật mỗi ngày.',
+    description:
+        'Xem phim mới, phim hay, phim Hd online trực tuyến miễn phí trên rophim-ui-fake.vercel.app. Rổ phim, kho phim khổng lồ, phim lồng tiếng, phim vietsub. Cập nhật mỗi ngày.',
     icons: {
         icon: '/logo.svg',
         apple: '/logo.svg'
@@ -40,6 +42,7 @@ const Layout = ({ children }: Readonly<{ children: ReactNode }>) => {
                     <Toaster />
                 </ThemeProvider>
             </body>
+            <SpeedInsights />
         </html>
     );
 };
